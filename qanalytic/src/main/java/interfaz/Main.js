@@ -25,16 +25,19 @@ document.getElementById('volverAlAnalisis').addEventListener('click', function()
     document.getElementById('elegirUsuario').hidden = true;
     document.getElementById('seccionTablasDatosUsuario').hidden = true;
     document.getElementById('seccionTablasDatosTotales').hidden = true;
+    document.getElementById('month').value = "seleccionaUnMes";
+    document.getElementById('elegirUsuario').value = "seleccionaUsuario";
 });
 
 var file;
+var fileData;
 //Agregamos todos los usuarios
 document.getElementById('file').addEventListener('change', function(evt) {
     file = evt.target.files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
-        var contents = e.target.result;
-        var lineas = contents.split('\n');
+        fileData = e.target.result;
+        var lineas = fileData.split('\n');
         // Recorre cada línea
         for (var i = 0; i < lineas.length; i++) {
             agregarUsuario(lineas[i], nombresUsuarios, usuarios);
@@ -52,46 +55,45 @@ document.getElementById('file').addEventListener('change', function(evt) {
 
 // Obtén el select del mes por su id
 var selectElement = document.getElementById('month');
-selectElement.addEventListener('click', function() {
-    var selectedMonth = selectElement.value;
+var selectedMonth;
+selectElement.addEventListener('change', function() {
+    selectedMonth = selectElement.value;
     var userSelect = document.getElementById('elegirUsuario');
+    document.getElementById('seccionElegirUsuario').hidden = false;
     document.getElementById('elegirUsuario').hidden = false;
     var seccionElegirUsuario = document.getElementById('seccionElegirUsuario');
     seccionElegirUsuario.appendChild(userSelect);
-    // Añade un evento 'change' al select de usuarios
-    userSelect.addEventListener('click', function() {
-        // Obtén el usuario seleccionado
-        var selectedIndex = userSelect.value;
-        var originalUser = usuarios[selectedIndex];
-        var selectedUser = JSON.parse(JSON.stringify(originalUser));
-        //Vuelvo a leer el archivo desde la 1er linea para manejar los datos
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var contents = e.target.result;
-            var lineas = contents.split('\n');
-            // Recorre cada línea
-            for (var i = 0; i < lineas.length; i++) {
-                var segundosTiempoResp = 0;
-                var datos = lineas[i].split("@");
-                var fechaHoraPregunta = new Date(datos[0]);
-                var horasPregunta = new Date();
-                horasPregunta.setHours(fechaHoraPregunta.getHours(),fechaHoraPregunta.getMinutes(),fechaHoraPregunta.getSeconds());
-                var diaDeLaSemana = fechaHoraPregunta.getDay();
-                var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-                var mesPregunta = meses[fechaHoraPregunta.getMonth()];
-                if(datos[1] === "Respondida" && mesPregunta === selectedMonth && datos[7] === selectedUser.nombre){
-                    var tiempoResp = new Date();
-                    tiempoResp.setHours(datos[9].split(':')[0]);
-                    tiempoResp.setMinutes(datos[9].split(':')[1]);
-                    tiempoResp.setSeconds(datos[9].split(':')[2]);
-                    segundosTiempoResp += tiempoResp.getHours() * 3600 + tiempoResp.getMinutes() * 60 + tiempoResp.getSeconds();
-                    agregarPreguntaAlDiaCorrespondiente(selectedUser, diaDeLaSemana, segundosTiempoResp, horasPregunta);  
-                }
+});
+// Añade un evento 'change' al select de usuarios
+var userSelect = document.getElementById('elegirUsuario');
+userSelect.addEventListener('change', function() {
+    // Obtén el usuario seleccionado
+    var selectedIndex = userSelect.value;
+    var originalUser = usuarios[selectedIndex];
+    var selectedUser = JSON.parse(JSON.stringify(originalUser));
+    //Vuelvo a leer el archivo desde la 1er linea para manejar los datos
+        var contents = fileData;
+        var lineas = contents.split('\n');
+        // Recorre cada línea
+        for (var i = 0; i < lineas.length; i++) {
+            var segundosTiempoResp = 0;
+            var datos = lineas[i].split("@");
+            var fechaHoraPregunta = new Date(datos[0]);
+            var horasPregunta = new Date();
+            horasPregunta.setHours(fechaHoraPregunta.getHours(),fechaHoraPregunta.getMinutes(),fechaHoraPregunta.getSeconds());
+            var diaDeLaSemana = fechaHoraPregunta.getDay();
+            var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+            var mesPregunta = meses[fechaHoraPregunta.getMonth()];
+            if(datos[1] === "Respondida" && mesPregunta === selectedMonth && datos[7] === selectedUser.nombre){
+                var tiempoResp = new Date();
+                tiempoResp.setHours(datos[9].split(':')[0]);
+                tiempoResp.setMinutes(datos[9].split(':')[1]);
+                tiempoResp.setSeconds(datos[9].split(':')[2]);
+                segundosTiempoResp += tiempoResp.getHours() * 3600 + tiempoResp.getMinutes() * 60 + tiempoResp.getSeconds();
+                agregarPreguntaAlDiaCorrespondiente(selectedUser, diaDeLaSemana, segundosTiempoResp, horasPregunta);  
             }
-            imprimirResultados(selectedUser, encabezados);
-        };
-        reader.readAsText(file);
-    });
+        }
+        imprimirResultados(selectedUser, encabezados);
 });
 
 // Obtén el botón total por su id
@@ -110,8 +112,8 @@ document.getElementById('tipoDeAnalisis').hidden = true;
 document.getElementById('elegirUsuario').hidden = true;
 //Vuelvo a leer el archivo desde la 1er linea para manejar los datos
 var reader = new FileReader();
-reader.onload = function(e) {
-    var contents = e.target.result;
+
+    var contents = fileData;
     var lineas = contents.split('\n');
     // Recorre cada línea
     for (var i = 0; i < lineas.length; i++) {
@@ -133,8 +135,7 @@ reader.onload = function(e) {
         }
     }
     imprimirResultadosTotales(respondidaTotal, respondidaModerada, encabezados);
-};
-reader.readAsText(file);
+
 });
 
 //Funciones
