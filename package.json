@@ -1,0 +1,24 @@
+{
+  "name": "qanalylt",
+  "productName": "QAnalytic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "qanalytic/src/main/java/interfaz/app.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "Sebastian",
+  "license": "ISC",
+  "build": {
+    "appId": "com.QAnalytic.app",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/win/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.2.2"
+  }
+  
+}

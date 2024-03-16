@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QAnalytic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Inicio.css">
+    <script type="module" src="Main.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="../../../../Images/logo.png" id="imagenLogo" alt="Logo QAnalytic" width="6%">
+        <h1 id="tituloPagina">QAnalytic</h1>  
+        <a href="#" id="volverAlAnalisis">Inicio</a>
+    </header>
+
+    <!-- Selección de archivo -->
+    <div class="container" id="ElegirArchivo">
+        <div class="row">
+            <label for="file">Elige el archivo para analizar:</label>
+            <input type="file" id="file" name="file" accept=".csv" class="form-control-file">
+        </div>
+    </div>
+
+    <!-- Mes a elegir -->
+    <section id="tipoDeAnalisis">
+        <div class="container" id="ElegirMes">
+            <div class="row">
+                <label for="month">Mes a analizar:</label>
+                <select id="month" name="month" class="form-control" style="width: 15%">
+                    <option selected disabled>Selecciona un mes</option>
+                    <option value="enero">Enero</option>
+                    <option value="febrero">Febrero</option>
+                    <option value="marzo">Marzo</option>
+                    <option value="abril">Abril</option>
+                    <option value="mayo">Mayo</option>
+                    <option value="junio">Junio</option>
+                    <option value="julio">Julio</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="septiembre">Septiembre</option>
+                    <option value="octubre">Octubre</option>
+                    <option value="noviembre">Noviembre</option>
+                    <option value="diciembre">Diciembre</option>
+                </select>
+                <button type="button" id="botonTotal" class="btn btn-warning">Total</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elegir usuario -->
+    <section id="seccionElegirUsuario">
+        <nav>
+            <select id="elegirUsuario" style="width: 13%">
+
+            </select>
+        </nav>
+
+    </section>
+
+   <!-- Tabla con datos por usuario -->
+    <section id="seccionTablasDatosUsuario">
+        <div>    
+        <h5 class="tituloTablas">Datos Generales del Mes</h5>
+            <table class="tabla-moderna" id="tablaDatosGenerasMes">
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h5 class="tituloTablas">Datos Lunes a Viernes</h5>
+            <table class="tabla-moderna" id="tablaDatosLaV">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h5 class="tituloTablas">Datos Sabado</h5>
+            <table class="tabla-moderna" id="tablaDatosSabado">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h5 class="tituloTablas">Datos Domingo</h5>
+            <table class="tabla-moderna" id="tablaDatosDomingo">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tabla con datos totales -->
+    <section id="seccionTablasDatosTotales">
+        <div>
+            <h5 class="tituloTablas">Datos L a V Totales</h5>
+            <table class="tabla-moderna" id="tablaDatosLaVTotales">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h5 class="tituloTablas">Datos Sabado Totales</h5>
+            <table class="tabla-moderna" id="tablaDatosSabadoTotales">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h5 class="tituloTablas">Datos Domingo Totales</h5>
+            <table class="tabla-moderna" id="tablaDatosDomingoTotales">
+                <thead>
+
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h5 class="tituloTablas">Datos Moderadas</h5>
+            <table class="tabla-moderna" id="tablaDatosModeradas">
+                <thead>
+                
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer></footer>
+
+</body>
+
+</html>

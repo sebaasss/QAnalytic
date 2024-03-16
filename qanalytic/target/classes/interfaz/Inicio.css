@@ -1,0 +1,180 @@
+body{
+    background-color: #F8F8FF; 
+}
+
+header {
+    background-color: #FF4500;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#volverAlAnalisis {
+    color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0.5px 0.5px 1px #000000;
+    margin-left: 75%;
+    font-size: 18px;
+}
+
+#ElegirMes, #ElegirArchivo{
+    margin-top: 3%;
+}
+
+#ElegirArchivo {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+#ElegirArchivo label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#ElegirArchivo input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+#tipoDeAnalisis {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+#tipoDeAnalisis label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#tipoDeAnalisis select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+#botonTotal{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffc107;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#botonTotal:hover {
+    background-color: #e0a800;
+}
+
+#seccionElegirUsuario{
+    margin-top: 3%;
+    margin-left: 13.3%;
+}
+
+#elegirUsuario {
+    width: 13%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+#elegirUsuario:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+#botonTotal{
+    width:6%;
+    margin-left: 1.5%;
+}
+
+footer{
+    background-color: #FF4500;
+    height: 4%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.tabla-moderna{
+    width: 98%;
+    border-collapse: collapse;
+    margin-left: 1%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#tablaDatosTotal {
+    display: none;
+}
+
+.tabla-moderna thead th {
+    background-color: #FFA07A;
+    color: #ffffff;
+    text-align: left;
+}
+.tabla-moderna thead td {
+    background-color: #ffd9ca;
+    color: #ff743e;
+}
+.tabla-moderna th, .tabla-moderna td {
+    padding: 12px 15px;
+}
+.tabla-moderna tbody tr {
+    border-bottom: 1px solid #dddddd;
+}   
+.tabla-moderna tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.tabla-modernaGeneral tbody tr:last-of-type {
+    border-bottom: 2px solid #FFA07A;
+}
+
+#seccionTablasDatosUsuario, #seccionTablasDatosTotales {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;  
+}
+
+.tituloTablas {
+    color: #FF4500; /* color del texto */
+    font-family: Arial, sans-serif; /* tipo de letra */
+    font-size: 1.4em; /* tamaño del texto */
+    font-weight: bold; /* grosor del texto */
+    text-transform: uppercase; /* transforma el texto a mayúsculas */
+    text-shadow: 0.5px 0.5px 1px #FFA07A; 
+}
+
+#tituloPagina {
+    color: #FFFFFF; /* color del texto */
+    font-family: 'Arial', sans-serif; /* tipo de letra */
+    font-size: 2.5em; /* tamaño del texto */
+    font-weight: bold; /* grosor del texto */
+    text-transform: uppercase; /* transforma el texto a mayúsculas */
+    text-shadow: 3px 3px 6px #000000; /* sombra del texto */
+    text-align: center; /* alineación del texto */
+}
